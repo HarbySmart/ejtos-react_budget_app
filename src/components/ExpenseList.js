@@ -6,12 +6,15 @@ const ExpenseList = () => {
     const { expenses } = useContext(AppContext);
 
     return (
+        <div id='Table'>
+        <h2>Allocation</h2>
         <table className='table'>
               <thead className="thead-light">
             <tr>
               <th scope="col">Department</th>
               <th scope="col">Allocated Budget</th>
-              <th scope="col">Increase by 10</th>
+              <th scope="col" align="center">Increase by 10</th>
+              <th scope ="col" align="center">Decrease by 10</th>
               <th scope="col">Delete</th>
             </tr>
           </thead>
@@ -21,6 +24,7 @@ const ExpenseList = () => {
             ))}
             </tbody>
         </table>
+        </div>
     );
 };
 

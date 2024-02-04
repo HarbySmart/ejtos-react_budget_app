@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const AllocationForm = (props) => {
-    const { dispatch,remaining  } = useContext(AppContext);
+    const { dispatch,remaining, currency } = useContext(AppContext);
 
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
@@ -36,7 +36,7 @@ const AllocationForm = (props) => {
     return (
         <div>
             <div className='row'>
-
+            <form>Change Allocation
             <div className="input-group mb-3" style={{ marginLeft: '2rem' }}>
                     <div className="input-group-prepend">
                 <label className="input-group-text" htmlFor="inputGroupSelect01">Department</label>
@@ -51,27 +51,31 @@ const AllocationForm = (props) => {
                 <option value="Admin" name="admin">Admin</option>
                   </select>
 
-                    <div className="input-group-prepend" style={{ marginLeft: '2rem' }}>
+                <div className="input-group-prepend" style={{ marginLeft: '2rem'}}>
                 <label className="input-group-text" htmlFor="inputGroupSelect02">Allocation</label>
-                  </div>
-                  <select className="custom-select" id="inputGroupSelect02" onChange={(event) => setAction(event.target.value)}>
-                        <option defaultValue value="Add" name="Add">Add</option>
-                <option value="Reduce" name="Reduce">Reduce</option>
-                  </select>
-
-                    <input
-                        required='required'
-                        type='number'
-                        id='cost'
-                        value={cost}
-                        style={{ marginLeft: '2rem' , size: 10}}
-                        onChange={(event) => setCost(event.target.value)}>
-                        </input>
+                </div>
+                <select className="custom-select" id="inputGroupSelect02" onChange={(event) => setAction(event.target.value)}>
+                    <option defaultValue value="Add" name="Add" >Add</option>
+                    <option value="Reduce" name="Reduce">Reduce</option>
+                 </select>
+                  
+                  
+                <label>{currency}  
+                <input
+                    required='required'
+                    type='number'
+                    id='cost'
+                    value={cost}
+                    style={{ size: 10, margin: '1.5rem'}}
+                    onChange={(event) => setCost(event.target.value)}>
+                </input>
+                </label>
 
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
                         Save
                     </button>
                 </div>
+                </form>
                 </div>
 
         </div>
